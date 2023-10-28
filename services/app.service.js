@@ -11,7 +11,13 @@ async function deployApp(app){
     return "deploying app"
 }
 
+async function getApp(appId){
+    let app = await dbo.findOne({_id: ObjectId(appId)});
+    return app;
+}
+
 module.exports = {
     getApps,
-    deployApp
+    deployApp,
+    getApp
 }

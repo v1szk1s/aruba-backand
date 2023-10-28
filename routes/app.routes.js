@@ -32,6 +32,7 @@ router.post("/login", userController.login);
 
 /* ----------------------------------- App ---------------------------------- */
 router.get("/marketplace", auth.validateToken, appController.getApps);
-router.post("/deploy", auth.validateToken, appController.deployApp);
+router.get("/app/:id", auth.validateToken,  appController.getApp);
+router.post("/deploy/:id", auth.validateToken, appController.deployApp);
 
 module.exports = router;
