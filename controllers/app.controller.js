@@ -9,8 +9,8 @@ async function getApps(req, res) {
 
 async function deployApp(req, res) {
     let appId = req.body;
-    //let result = await AppServices.deployApp(app);
-    res.status(200).json("result");
+    let result = await AppServices.deployApp(appId);
+    res.status(200).json(result);
 }
 
 module.exports = {
