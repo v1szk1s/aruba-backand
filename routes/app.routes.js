@@ -18,21 +18,21 @@ const userController = require("../controllers/user.controller");
 const appController = require("../controllers/app.controller");
 
 
-router.get("/api", (req, res) => {
+router.get("/api/", (req, res) => {
     res.status(200).send("Hello World!");
     });
 
-router.get("/auth", auth.validateToken, (req, res) => {
+router.get("/api/auth", auth.validateToken, (req, res) => {
     res.status(200).send("Validated");
 });
 
 /* ---------------------------------- User ---------------------------------- */
-router.post("/register", userController.register);
-router.post("/login", userController.login);
+router.post("/api/register", userController.register);
+router.post("/api/login", userController.login);
 
 /* ----------------------------------- App ---------------------------------- */
-router.get("/marketplace", auth.validateToken, appController.getApps);
-router.get("/app/:id", auth.validateToken,  appController.getApp);
-router.post("/deploy/:id", auth.validateToken, appController.deployApp);
+router.get("/api/marketplace", auth.validateToken, appController.getApps);
+router.get("/api/app/:id", auth.validateToken,  appController.getApp);
+router.post("/api/deploy/:id", auth.validateToken, appController.deployApp);
 
 module.exports = router;
