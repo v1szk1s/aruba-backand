@@ -18,7 +18,7 @@ const userController = require("../controllers/user.controller");
 const appController = require("../controllers/app.controller");
 
 
-router.get("/", (req, res) => {
+router.get("/api", (req, res) => {
     res.status(200).send("Hello World!");
     });
 

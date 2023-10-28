@@ -29,7 +29,7 @@ app.use(router);
 
 db.run();
 app.listen(PORT, () => {
-  console.log("App listening at: http://localhost:8080/");
+  console.log("App listening at: http://localhost:" + PORT);
 });
 
 
