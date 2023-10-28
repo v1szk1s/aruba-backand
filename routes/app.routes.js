@@ -19,9 +19,12 @@ const appController = require("../controllers/app.controller");
 
 
 router.get("/", (req, res) => {
-    res.send("Hello World!");
-    }
-);
+    res.status(200).send("Hello World!");
+    });
+
+router.get("/auth", auth.validateToken, (req, res) => {
+    res.status(200).send("Validated");
+});
 
 /* ---------------------------------- User ---------------------------------- */
 router.post("/register", userController.register);
