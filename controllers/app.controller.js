@@ -9,8 +9,10 @@ async function getApps(req, res) {
 
 async function deployApp(req, res) {
     let appId = req.params.id;
-    console.log(appId);
-    let result = await AppServices.deployApp(appId);
+    const user = req.user;
+    const date = new Date();
+    let result = await AppServices.deployApp(appId, date, user);
+    console.log(result);
     res.status(200).json(result);
 }
 
@@ -20,8 +22,16 @@ async function getApp(req, res) {
     res.status(200).json(app);
 }
 
+async function getDeployedApp(req, res) {
+    const user = req.user;
+    let apps = await AppServices.getDeployedApp(user);
+    res.status(200).json(apps);
+}
+
+
 module.exports = {
     getApps,
     deployApp,
-    getApp
+    getApp,
+    getDeployedApp
 }
