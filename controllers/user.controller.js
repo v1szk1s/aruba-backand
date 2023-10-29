@@ -2,6 +2,8 @@ const bcrypt = require("bcryptjs");
 const User = require("../models/user.model");
 const UserServices = require("../services/user.service");
 const { sign } = require("jsonwebtoken");
+const k8s = require('@kubernetes/client-node');
+
 
 
 async function register(req, res) {

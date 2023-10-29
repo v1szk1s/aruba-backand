@@ -1,10 +1,11 @@
 FROM --platform=linux/amd64 node:21
-WORKDIR '/backend'
+WORKDIR '/back'
 
 COPY package.json ./
 COPY package-lock.json ./
 
-COPY . ./
+COPY . .
+# COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 RUN npm install --silent
 
 EXPOSE 8080

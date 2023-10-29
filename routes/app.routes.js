@@ -4,6 +4,7 @@ const flash = require('express-flash');
 const session = require('express-session');
 const auth = require('../middleware/auth.js');
 
+
 router.use(
     session({
         secret: "secret",
@@ -18,9 +19,7 @@ const userController = require("../controllers/user.controller");
 const appController = require("../controllers/app.controller");
 
 
-router.get("/api/", (req, res) => {
-    res.status(200).send("Hello World!");
-    });
+router.get("/api/", appController.getPods);
 
 router.get("/api/auth", auth.validateToken, (req, res) => {
     res.status(200).send("Validated");
